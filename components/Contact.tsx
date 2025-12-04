@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contato" className="py-20 bg-white">
+    <section id="contato" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Form Side */}
-          <div className="lg:w-7/12 bg-gray-50 rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+          <div className="lg:w-7/12 bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-10">
                 <div className="bg-emerald-100 text-emerald-600 p-4 rounded-full mb-4">
@@ -108,46 +108,47 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
                     <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-                      placeholder="(00) 00000-0000"
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                        placeholder="seu@email.com"
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-                    placeholder="seu@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-                    placeholder="Olá, gostaria de uma cotação para..."
-                  ></textarea>
+                <div className="grid grid-cols-1 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                        placeholder="(00) 00000-0000"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        required
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                        placeholder="Olá, gostaria de uma cotação para..."
+                    ></textarea>
+                  </div>
                 </div>
 
                 <div className="flex items-start gap-2">
@@ -161,7 +162,7 @@ const Contact: React.FC = () => {
                     className="mt-1 h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded"
                   />
                   <label htmlFor="consent" className="text-sm text-gray-500">
-                    Concordo em receber contatos e e-mails da Kafir Corretora com informações sobre seguros e cotações.
+                    Autorizo receber comunicações da Kafir Corretora com informações sobre seguros e cotações.
                   </label>
                 </div>
 

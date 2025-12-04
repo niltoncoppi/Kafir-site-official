@@ -15,16 +15,16 @@ const Hero: React.FC = () => {
           Fundada em 2010
         </div>
         
-        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-          Proteção sob medida para <br className="hidden md:block" />
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+          Proteja o que é mais importante.<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
-            você e sua empresa
-          </span>
+            Consultoria em seguros sob medida
+          </span><br/>
+          para sua empresa e sua família.
         </h1>
         
         <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Consultoria de seguros personalizada com rapidez, transparência e agilidade. 
-          Descomplicamos o processo para garantir a sua tranquilidade.
+          Nossa equipe especializada pesquisa as melhores seguradoras para você, com rapidez, transparência e atendimento humanizado.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
             href="#contato" 
             className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-lg shadow-lg hover:shadow-emerald-200/50 transition-all transform hover:-translate-y-1"
           >
-            Solicitar Cotação
+            Solicitar cotação agora
           </a>
           <a 
             href="#produtos" 
@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
           </a>
         </div>
 
-        <div className="mt-12 flex items-center justify-center gap-8 text-gray-500 text-sm md:text-base">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-gray-500 text-sm md:text-base">
             <div className="flex items-center gap-2">
                 <Icon name="CheckCircle" className="text-emerald-500" size={18} />
                 <span>Cotação Rápida</span>

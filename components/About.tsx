@@ -15,21 +15,24 @@ const About: React.FC = () => {
              <div className="relative">
                 <img 
                     src="https://picsum.photos/600/400" 
-                    alt="Equipe Kafir em reunião" 
-                    className="rounded-2xl shadow-2xl z-10 relative"
+                    alt="Equipe Kafir em reunião de consultoria" 
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    className="rounded-2xl shadow-2xl z-10 relative object-cover w-full h-auto"
                 />
                 <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-emerald-500/30 rounded-2xl -z-0 hidden md:block"></div>
              </div>
           </div>
           
           <div className="md:w-1/2">
-            <span className="text-emerald-300 font-semibold tracking-wider uppercase mb-2 block">Nossa História</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Expertise e compromisso desde 2010</h2>
+            <span className="text-emerald-300 font-semibold tracking-wider uppercase mb-2 block">Sobre Nós</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Expertise e compromisso</h2>
             <p className="text-emerald-100 text-lg mb-6 leading-relaxed">
-              Fundada com a missão de trazer clareza para o complexo mundo dos seguros, a Kafir se consolidou como uma consultoria que valoriza o <strong className="text-white">atendimento humanizado</strong>.
+              Fundada em 2010, a Kafir nasceu para simplificar a contratação de seguros no Brasil. Oferecemos consultoria personalizada para empresas e pessoas físicas, selecionando as melhores coberturas com agilidade e comprometimento.
             </p>
             <p className="text-emerald-100 mb-8 leading-relaxed">
-              Não vendemos apenas apólices; construímos relacionamentos de confiança, analisando riscos minuciosamente e buscando as melhores soluções nas maiores seguradoras do mercado para proteger o que realmente importa para você.
+              Valorizamos o atendimento humano e buscamos excelência em cada relacionamento. Não vendemos apenas apólices; construímos parcerias de confiança, analisando riscos minuciosamente para proteger o que realmente importa para você.
             </p>
             
             <div className="flex gap-8 border-t border-emerald-800 pt-8">

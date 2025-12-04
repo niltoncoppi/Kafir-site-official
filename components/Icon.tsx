@@ -6,7 +6,8 @@ import {
   Link, Ticket, Truck, Coins, Settings, Stethoscope, GraduationCap,
   Handshake, BarChart, Scale, HardHat, ShoppingBag, Container,
   HeartHandshake, Zap, UserCheck, Award, PhoneCall, ChevronDown,
-  Menu, X, CheckCircle, Mail, Phone, Clock, Instagram, Facebook, Linkedin, ExternalLink
+  Menu, X, CheckCircle, Mail, Phone, Clock, Instagram, Facebook, Linkedin, ExternalLink,
+  Search, Presentation, LifeBuoy, FileText, Quote, Star, ArrowRight, User
 } from 'lucide-react';
 
 const iconMap: Record<string, React.FC<any>> = {
@@ -16,7 +17,8 @@ const iconMap: Record<string, React.FC<any>> = {
   Link, Ticket, Truck, Coins, Settings, Stethoscope, GraduationCap,
   Handshake, BarChart, Scale, HardHat, ShoppingBag, Container,
   HeartHandshake, Zap, UserCheck, Award, PhoneCall, ChevronDown,
-  Menu, X, CheckCircle, Mail, Phone, Clock, Instagram, Facebook, Linkedin, ExternalLink
+  Menu, X, CheckCircle, Mail, Phone, Clock, Instagram, Facebook, Linkedin, ExternalLink,
+  Search, Presentation, LifeBuoy, FileText, Quote, Star, ArrowRight, User
 };
 
 interface IconProps {

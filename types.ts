@@ -23,4 +23,27 @@ export interface FeatureItem {
   iconName: string;
 }
 
+export interface ProcessStep {
+  id: number;
+  title: string;
+  description: string;
+  iconName: string;
+}
+
+export interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  content: string;
+  avatarUrl: string;
+}
+
+export interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  date: string;
+  imageUrl: string;
+}
+
 export type Category = 'personal' | 'business';
