@@ -1,9 +1,10 @@
-import { InsuranceProduct, NavLink, FaqItem, FeatureItem, ProcessStep, Testimonial, BlogPost } from './types';
+import { InsuranceProduct, NavLink, FaqItem, FeatureItem, ProcessStep, Testimonial, ConsortiumFeature, BlogPost } from './types';
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Home', href: '#hero' },
   { label: 'Sobre', href: '#sobre' },
   { label: 'Produtos', href: '#produtos' },
+  { label: 'Consórcios', href: '#consorcios' },
   { label: 'Como Funciona', href: '#processo' },
   { label: 'Depoimentos', href: '#depoimentos' },
   { label: 'FAQ', href: '#faq' },
@@ -123,26 +124,49 @@ export const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
+export const CONSORTIUM_FEATURES: ConsortiumFeature[] = [
+  {
+    title: 'Parcelas Acessíveis',
+    description: 'Conquiste bens de alto valor planejando seu orçamento com mensalidades que cabem no seu bolso.',
+    iconName: 'Wallet'
+  },
+  {
+    title: 'Zero Juros',
+    description: 'Fuja das altas taxas de financiamento. No consórcio você paga apenas uma taxa administrativa reduzida.',
+    iconName: 'Percent'
+  },
+  {
+    title: 'Alavancagem',
+    description: 'Amplie seu patrimônio imobiliário ou renove sua frota de forma estratégica e programada.',
+    iconName: 'Rocket'
+  },
+  {
+    title: 'Poder à Vista',
+    description: 'Com a carta de crédito contemplada, você tem o poder de compra à vista para negociar melhores descontos.',
+    iconName: 'Banknote'
+  }
+];
+
 export const BLOG_POSTS: BlogPost[] = [
   {
-    id: 1,
-    title: '5 dicas para economizar no seguro do seu carro',
-    excerpt: 'Descubra como pequenos ajustes no perfil e na cobertura podem reduzir o valor da sua apólice.',
-    date: '10 Out, 2023',
-    imageUrl: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    id: 'post1',
+    title: 'Por que ter um Seguro de Vida é um ato de amor?',
+    excerpt: 'Entenda como o seguro de vida garante a estabilidade financeira da sua família em momentos difíceis.',
+    date: '15 Out, 2023',
+    imageUrl: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
   },
   {
-    id: 2,
-    title: 'Por que sua empresa precisa de um Seguro de Responsabilidade Civil?',
-    excerpt: 'Entenda os riscos jurídicos do dia a dia e como proteger o patrimônio do seu negócio.',
-    date: '25 Set, 2023',
-    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    id: 'post2',
+    title: '5 Dicas para economizar no Seguro Auto',
+    excerpt: 'Saiba quais fatores influenciam no preço do seu seguro e como conseguir as melhores condições.',
+    date: '22 Set, 2023',
+    imageUrl: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
   },
   {
-    id: 3,
-    title: 'Plano de Saúde Empresarial: Benefício ou Investimento?',
-    excerpt: 'Veja como um bom plano de saúde pode aumentar a produtividade e retenção de talentos.',
-    date: '05 Set, 2023',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-  },
+    id: 'post3',
+    title: 'Seguro Residencial: Vale a pena contratar?',
+    excerpt: 'Descubra as coberturas e assistências que vão muito além de proteção contra incêndio e roubo.',
+    date: '10 Set, 2023',
+    imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+  }
 ];

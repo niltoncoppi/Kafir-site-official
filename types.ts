@@ -38,8 +38,14 @@ export interface Testimonial {
   avatarUrl: string;
 }
 
+export interface ConsortiumFeature {
+  title: string;
+  description: string;
+  iconName: string;
+}
+
 export interface BlogPost {
-  id: number;
+  id: string;
   title: string;
   excerpt: string;
   date: string;
