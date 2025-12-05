@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kafir Corretora de Seguros - Consultoria personalizada para empresas e pessoas físicas. Consórcios e Seguros sob medida desde 2010.">
-    <title>Kafir Corretora de Seguros | Consultoria e Consórcios</title>
+    <meta name="description" content="Kafir Corretora de Seguros - Consórcios sem juros para imóveis e veículos. Planeje sua conquista com quem entende do assunto.">
+    <title>Kafir Consórcios | Planeje suas Conquistas</title>
     <style>
         /* --- RESET & VARIABLES --- */
         :root {
@@ -351,185 +351,6 @@
             font-size: 0.95rem;
         }
 
-        /* --- PRODUCTS --- */
-        .products-section {
-            background-color: var(--gray-50);
-        }
-
-        .product-group {
-            margin-bottom: 3rem;
-        }
-
-        .product-group-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .product-group-title::before {
-            content: '';
-            display: block;
-            width: 4px;
-            height: 24px;
-            background-color: var(--primary);
-            border-radius: 2px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .product-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.2s;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid transparent;
-        }
-
-        .product-card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
-        }
-
-        .product-icon {
-            width: 48px;
-            height: 48px;
-            background-color: var(--light);
-            color: var(--primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            transition: background-color 0.2s;
-        }
-
-        .product-card:hover .product-icon {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
-        .product-card h4 {
-            font-size: 1.1rem;
-            color: var(--gray-800);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .product-card p {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .link-more {
-            font-size: 0.875rem;
-            color: var(--primary);
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        /* --- CONSORTIUMS (Featured) --- */
-        .consortium-section {
-            background: linear-gradient(to bottom right, var(--dark), #0f172a);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .consortium-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 20%);
-            pointer-events: none;
-        }
-
-        .consortium-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        @media (min-width: 992px) {
-            .consortium-container {
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-
-        .consortium-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            line-height: 1.1;
-        }
-
-        .consortium-content p {
-            font-size: 1.1rem;
-            color: #d1d5db;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .consortium-features {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        @media (min-width: 600px) {
-            .consortium-features {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .c-feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .c-icon-box {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 8px;
-            color: var(--secondary);
-            flex-shrink: 0;
-        }
-
-        .c-feature h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-            font-weight: 700;
-        }
-
-        .c-feature p {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
-
-
         /* --- PROCESS --- */
         .process-steps {
             display: flex;
@@ -696,7 +517,7 @@
         }
 
         .form-input,
-        .form-textarea {
+        .form-textarea, .form-select {
             width: 100%;
             padding: 12px 16px;
             border: 1px solid var(--gray-300);
@@ -704,10 +525,11 @@
             font-size: 1rem;
             font-family: inherit;
             transition: border-color 0.2s;
+            background-color: #fff;
         }
 
         .form-input:focus,
-        .form-textarea:focus {
+        .form-textarea:focus, .form-select:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
@@ -813,15 +635,6 @@
             }
         }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/"
-  }
-}
-</script>
 </head>
 
 <body>
@@ -829,7 +642,7 @@
     <!-- Header -->
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-icon">
                     <svg class="icon" viewBox="0 0 24 24">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -839,11 +652,11 @@
             </a>
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li><a href="#produtos" class="nav-link">Seguros</a></li>
-                    <li><a href="#consorcios" class="nav-link" style="color: var(--primary); font-weight: 700;">Consórcios</a></li>
-                    <li><a href="#processo" class="nav-link">Como Funciona</a></li>
-                    <li><a href="#contato" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem; margin-top: 10px;">Solicitar Cotação</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="index.html#produtos" class="nav-link">Seguros</a></li>
+                    <li><a href="#" class="nav-link" style="color: var(--primary); font-weight: 700;">Consórcios</a></li>
+                    <li><a href="index.html#processo" class="nav-link">Como Funciona</a></li>
+                    <li><a href="#form-consorcio" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem; margin-top: 10px;">Simular Consórcio</a></li>
                 </ul>
                 <button class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menu">
                     <svg class="icon" viewBox="0 0 24 24">
@@ -864,320 +677,152 @@
         <div class="container hero-content text-center">
             <div class="hero-badge">
                 <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24">
-                    <circle cx="12" cy="8" r="7"></circle>
-                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                   <line x1="19" y1="5" x2="5" y2="19"></line>
+                   <circle cx="6.5" cy="6.5" r="2.5"></circle>
+                   <circle cx="17.5" cy="17.5" r="2.5"></circle>
                 </svg>
-                Fundada em 2010
+                Zero Juros
             </div>
-            <h1>Proteja o que é mais importante.<br>Consultoria em seguros sob medida.</h1>
-            <p>Nossa equipe especializada pesquisa as melhores seguradoras para você e sua empresa, com rapidez, transparência e atendimento humanizado.</p>
+            <h1>Consórcios Kafir – Planeje suas conquistas sem juros</h1>
+            <p>Amplie seu patrimônio sem juros, com parcelas que cabem no seu bolso. A estratégia ideal para imóveis e veículos.</p>
 
             <div class="hero-buttons">
-                <!-- CTA pointing to Consortiums page as requested -->
-                <a href="consorcio.html" class="btn btn-primary">
-                    Solicitar cotação agora
-                </a>
-                <a href="#produtos" class="btn btn-outline">
-                    Ver Soluções
+                <a href="#form-consorcio" class="btn btn-primary">
+                    Quero minha simulação gratuita
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Benefits / About -->
-    <section id="sobre" class="section-padding">
+    <!-- Benefits -->
+    <section class="section-padding">
         <div class="container">
             <div class="text-center mb-8">
-                <h2 class="section-title">Por que escolher a Kafir?</h2>
-                <p class="section-subtitle">Mais do que vender apólices, construímos parcerias de longo prazo baseadas em confiança.</p>
+                <h2 class="section-title">Por que fazer um Consórcio?</h2>
+                <p class="section-subtitle">A maneira mais inteligente de adquirir bens sem pagar os juros abusivos de financiamentos.</p>
             </div>
 
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="8.5" cy="7" r="4"></circle>
-                            <line x1="20" y1="8" x2="20" y2="14"></line>
-                            <line x1="23" y1="11" x2="17" y2="11"></line>
-                        </svg>
+                         <svg class="icon" viewBox="0 0 24 24">
+                             <line x1="19" y1="5" x2="5" y2="19"></line>
+                             <circle cx="6.5" cy="6.5" r="2.5"></circle>
+                             <circle cx="17.5" cy="17.5" r="2.5"></circle>
+                         </svg>
                     </div>
-                    <h3>Atendimento Humano</h3>
-                    <p>Fale com pessoas reais. Nossa equipe de consultores está pronta para ouvir e resolver suas demandas com agilidade.</p>
+                    <h3>Zero Juros</h3>
+                    <p>Diga adeus às taxas de juros bancárias. No consórcio você paga apenas uma taxa administrativa fixa.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                         <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                         </svg>
+                    </div>
+                    <h3>Poder à Vista</h3>
+                    <p>Com a carta de crédito contemplada, você tem o poder de compra à vista para negociar grandes descontos.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg class="icon" viewBox="0 0 24 24">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
                     </div>
-                    <h3>Rapidez na Cotação</h3>
-                    <p>Processos otimizados para entregar os valores das melhores seguradoras sem burocracia desnecessária.</p>
+                    <h3>Flexibilidade</h3>
+                    <p>Escolha o valor do crédito, o prazo e o valor da parcela que melhor se adaptam ao seu orçamento.</p>
                 </div>
-                <div class="benefit-card">
+                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                             <path d="M3 3v18h18"></path>
+                             <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
                         </svg>
                     </div>
-                    <h3>Parcerias Premium</h3>
-                    <p>Trabalhamos apenas com as seguradoras mais sólidas e renomadas do mercado nacional.</p>
+                    <h3>Patrimônio Seguro</h3>
+                    <p>Uma forma disciplinada de poupar e investir no aumento do seu patrimônio familiar ou empresarial.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="produtos" class="section-padding products-section">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-title">Soluções Completas</h2>
-                <p class="section-subtitle">Proteção para cada etapa da sua vida e para o crescimento do seu negócio.</p>
-            </div>
-
-            <!-- Personal -->
-            <div class="product-group">
-                <div class="product-group-title">Para Você e Sua Família</div>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
-                                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
-                                <circle cx="7" cy="17" r="2"></circle>
-                                <path d="M9 17h6"></path>
-                                <circle cx="17" cy="17" r="2"></circle>
-                            </svg></div>
-                        <h4>Seguro Auto</h4>
-                        <p>Proteção completa contra roubo, colisão e assistência 24h para seu veículo.</p>
-                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                            </svg></div>
-                        <h4>Plano de Saúde</h4>
-                        <p>Acesso às melhores redes hospitalares para cuidar do bem-estar da sua família.</p>
-                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                            </svg></div>
-                        <h4>Seguro Residencial</h4>
-                        <p>Segurança para seu lar com coberturas para incêndio, roubo e danos elétricos.</p>
-                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                            </svg></div>
-                        <h4>Seguro de Vida</h4>
-                        <p>Garanta a estabilidade financeira de quem você ama em qualquer imprevisto.</p>
-                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Business -->
-            <div class="product-group">
-                <div class="product-group-title">Para Sua Empresa</div>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
-                                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
-                                <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
-                                <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
-                                <path d="M10 6h4" />
-                                <path d="M10 10h4" />
-                                <path d="M10 14h4" />
-                                <path d="M10 18h4" />
-                            </svg></div>
-                        <h4>Empresarial Multirrisco</h4>
-                        <p>Proteção patrimonial completa contra incêndios, danos e responsabilidade civil.</p>
-                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg></div>
-                        <h4>Saúde Empresarial</h4>
-                        <p>Planos corporativos para reter talentos e cuidar da sua equipe.</p>
-                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
-                                <rect x="1" y="3" width="15" height="13"></rect>
-                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                            </svg></div>
-                        <h4>Frota de Veículos</h4>
-                        <p>Gestão unificada de seguros para os veículos da sua empresa com custo otimizado.</p>
-                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <path d="m9 15 2 2 4-4"></path>
-                            </svg></div>
-                        <h4>Seguro Garantia</h4>
-                        <p>Alternativa eficiente à fiança bancária para contratos e licitações.</p>
-                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Consorcios Section (Anchor Destination) -->
-    <section id="consorcios" class="section-padding consortium-section">
-        <div class="container consortium-container">
-            <div class="consortium-content">
-                <div style="display:inline-block; background:rgba(255,255,255,0.1); color: #6ee7b7; font-weight:700; font-size:0.8rem; padding: 4px 12px; border-radius:20px; text-transform:uppercase; margin-bottom:1rem;">
-                    Estratégia Financeira
-                </div>
-                <h2>Consórcios Kafir:<br>Planeje sua conquista</h2>
-                <p>O consórcio é a ferramenta ideal para quem deseja adquirir imóveis ou veículos sem pagar juros bancários. Com a Kafir, você encontra o grupo perfeito para o seu perfil e objetivo.</p>
-
-                <div class="consortium-features">
-                    <div class="c-feature">
-                        <div class="c-icon-box">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <line x1="19" y1="5" x2="5" y2="19"></line>
-                                <circle cx="6.5" cy="6.5" r="2.5"></circle>
-                                <circle cx="17.5" cy="17.5" r="2.5"></circle>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Zero Juros</h4>
-                            <p>Fuja das taxas abusivas. Pague apenas a taxa administrativa.</p>
-                        </div>
-                    </div>
-                    <div class="c-feature">
-                        <div class="c-icon-box">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Parcelas Acessíveis</h4>
-                            <p>Planos flexíveis que cabem no seu orçamento mensal.</p>
-                        </div>
-                    </div>
-                    <div class="c-feature">
-                        <div class="c-icon-box">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M3 3v18h18"></path>
-                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Investimento</h4>
-                            <p>Aumente seu patrimônio de forma disciplinada e segura.</p>
-                        </div>
-                    </div>
-                    <div class="c-feature">
-                        <div class="c-icon-box">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Poder à Vista</h4>
-                            <p>Com a carta contemplada, você negocia a compra pelo valor à vista.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#contato" class="btn btn-primary" style="background-color: #34d399; color: #064e3b; border:none;">
-                    Solicitar Simulação de Consórcio
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section id="processo" class="section-padding">
+    <!-- How it Works (Consortium) -->
+    <section class="section-padding" style="background-color: var(--gray-50);">
         <div class="container">
             <div class="text-center mb-12">
                 <h2 class="section-title">Como Funciona</h2>
-                <p class="section-subtitle">Simplificamos a contratação do seu seguro em 3 passos rápidos.</p>
+                <p class="section-subtitle">O caminho até a sua conquista em 3 passos simples.</p>
             </div>
 
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Diagnóstico</h3>
-                    <p>Entendemos suas necessidades e seu perfil em uma conversa rápida.</p>
+                    <h3>Escolha o Plano</h3>
+                    <p>Definimos juntos o valor do bem e o valor da parcela ideal para o seu bolso.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Cotação</h3>
-                    <p>Pesquisamos nas melhores seguradoras para encontrar o melhor preço.</p>
+                    <h3>Contemplação</h3>
+                    <p>Participe das assembleias mensais. Você pode ser sorteado ou ofertar um lance para acelerar.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Contratação</h3>
-                    <p>Apresentamos a melhor opção e cuidamos de toda a burocracia para você.</p>
+                    <h3>Aquisição</h3>
+                    <p>Com a carta liberada, você compra seu imóvel ou veículo com poder de pagamento à vista.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section id="depoimentos" class="section-padding" style="background-color: var(--gray-50);">
+    <section class="section-padding">
         <div class="container">
             <div class="text-center mb-12">
-                <h2 class="section-title">O que dizem nossos clientes</h2>
+                <h2 class="section-title">Quem planejou, conquistou</h2>
             </div>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-quote">“</div>
-                    <p class="testimonial-text">A Kafir me ajudou a escolher o melhor plano de saúde para minha empresa. O atendimento foi impecável do início ao fim.</p>
+                    <p class="testimonial-text">Com a Kafir, planejei a compra da minha segunda sala comercial. A economia em relação ao financiamento foi absurda.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
                             </svg></div>
                         <div class="author-info">
-                            <h5>Carlos Silva</h5>
+                            <h5>Mariana Souza</h5>
+                            <span>Investidora</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">Renovei a frota da minha empresa utilizando cartas de crédito. A assessoria da Kafir foi essencial para escolher os melhores grupos.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg></div>
+                        <div class="author-info">
+                            <h5>Felipe Rocha</h5>
                             <span>Empresário</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-quote">“</div>
-                    <p class="testimonial-text">Fiz meu consórcio imobiliário com eles e fui contemplada em 4 meses. A assessoria na hora do lance fez toda a diferença.</p>
+                    <p class="testimonial-text">A equipe me explicou tudo sobre lances e consegui tirar meu carro novo em apenas 3 meses de consórcio.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
                             </svg></div>
                         <div class="author-info">
-                            <h5>Mariana Rocha</h5>
-                            <span>Advogada</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">“</div>
-                    <p class="testimonial-text">Precisei acionar o seguro do meu carro e o suporte da Kafir foi impecável. Resolveram tudo muito rápido.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg></div>
-                        <div class="author-info">
-                            <h5>Roberto Almeida</h5>
-                            <span>Engenheiro</span>
+                            <h5>João Pedro</h5>
+                            <span>Autônomo</span>
                         </div>
                     </div>
                 </div>
@@ -1185,12 +830,12 @@
         </div>
     </section>
 
-    <!-- Contact Form -->
-    <section id="contato" class="section-padding contact-section">
+    <!-- Lead Form -->
+    <section id="form-consorcio" class="section-padding contact-section">
         <div class="container contact-container">
             <div>
-                <h2 class="section-title">Vamos conversar?</h2>
-                <p style="color:var(--gray-600); margin-bottom: 2rem;">Preencha o formulário para solicitar sua cotação ou tirar dúvidas. Nossa equipe entrará em contato rapidamente.</p>
+                <h2 class="section-title">Solicite sua Simulação</h2>
+                <p style="color:var(--gray-600); margin-bottom: 2rem;">Preencha o formulário abaixo para receber uma análise personalizada das melhores opções de consórcio para o seu perfil.</p>
 
                 <div style="margin-bottom: 2rem;">
                     <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:center;">
@@ -1200,28 +845,15 @@
                             </svg>
                         </div>
                         <div>
-                            <strong style="display:block; color:var(--dark);">Telefone</strong>
+                            <strong style="display:block; color:var(--dark);">Dúvidas? Ligue agora</strong>
                             <span style="color:var(--gray-600);">(11) 99999-9999</span>
-                        </div>
-                    </div>
-                    <div style="display:flex; gap:1rem; align-items:center;">
-                        <div style="background:var(--light); padding:10px; border-radius:8px; color:var(--primary);">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <strong style="display:block; color:var(--dark);">E-mail</strong>
-                            <span style="color:var(--gray-600);">contato@kafirseguros.com.br</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="form-box">
-                <!-- Simple Form Structure -->
-                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Obrigado! Sua mensagem foi enviada (simulação).');">
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Solicitação de simulação enviada com sucesso!');">
                     <div class="form-group">
                         <label for="name" class="form-label">Nome Completo</label>
                         <input type="text" id="name" name="name" class="form-input" placeholder="Seu nome" required>
@@ -1235,16 +867,25 @@
                         <input type="tel" id="phone" name="phone" class="form-input" placeholder="(11) 99999-9999" required>
                     </div>
                     <div class="form-group">
-                        <label for="message" class="form-label">Mensagem ou Tipo de Seguro</label>
-                        <textarea id="message" name="message" rows="4" class="form-textarea" placeholder="Gostaria de uma cotação para..."></textarea>
+                        <label for="tipo_bem" class="form-label">Bem de Interesse</label>
+                        <select id="tipo_bem" name="tipo_bem" class="form-select">
+                            <option value="imovel">Imóvel (Casa/Apartamento)</option>
+                            <option value="veiculo">Veículo (Carro/Moto)</option>
+                            <option value="caminhao">Caminhão/Frota</option>
+                            <option value="servicos">Serviços/Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Mensagem (Opcional)</label>
+                        <textarea id="message" name="message" rows="3" class="form-textarea" placeholder="Valor desejado do crédito, prazo preferido, etc."></textarea>
                     </div>
                     <div class="form-group">
                         <label class="form-checkbox">
                             <input type="checkbox" required checked>
-                            <span>Concordo em receber comunicações da Kafir Corretora.</span>
+                            <span>Concordo em receber o contato da Kafir Corretora.</span>
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitação</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Simulação</button>
                 </form>
             </div>
         </div>
@@ -1271,20 +912,20 @@
                 <div class="footer-links">
                     <h4>Navegação</h4>
                     <ul>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#produtos">Produtos</a></li>
-                        <li><a href="#consorcios">Consórcios</a></li>
-                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#produtos">Produtos</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
-                    <h4>Seguros</h4>
+                    <h4>Soluções</h4>
                     <ul>
-                        <li><a href="#produtos">Automóvel</a></li>
-                        <li><a href="#produtos">Vida</a></li>
-                        <li><a href="#produtos">Empresarial</a></li>
-                        <li><a href="#produtos">Residencial</a></li>
+                        <li><a href="index.html#produtos">Automóvel</a></li>
+                        <li><a href="consorcio.html">Consórcios</a></li>
+                        <li><a href="index.html#produtos">Empresarial</a></li>
+                        <li><a href="index.html#produtos">Vida</a></li>
                     </ul>
                 </div>
 
