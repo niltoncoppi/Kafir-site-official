@@ -17,7 +17,9 @@
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
             --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
             --gray-600: #4b5563;
+            --gray-700: #374151;
             --gray-800: #1f2937;
             --text-main: #111827;
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -78,6 +80,7 @@
             cursor: pointer;
             border: none;
             font-size: 1rem;
+            text-align: center;
         }
 
         .btn-primary {
@@ -109,7 +112,9 @@
 
         .text-center { text-align: center; }
         .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
         .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
         .text-primary { color: var(--primary); }
         .font-bold { font-weight: 700; }
 
@@ -304,6 +309,7 @@
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
             color: var(--gray-800);
+            font-weight: 700;
         }
 
         .benefit-card p {
@@ -341,7 +347,7 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
         }
 
@@ -361,10 +367,29 @@
             border-color: var(--primary);
         }
 
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .product-card:hover .product-icon {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
         .product-card h4 {
             font-size: 1.1rem;
             color: var(--gray-800);
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .product-card p {
@@ -405,15 +430,21 @@
         .consortium-container {
             display: flex;
             flex-direction: column;
-            lg:flex-direction: row;
             gap: 4rem;
             align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .consortium-container {
+                flex-direction: row;
+            }
         }
 
         .consortium-content h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             color: var(--white);
+            line-height: 1.1;
         }
 
         .consortium-content p {
@@ -425,9 +456,15 @@
 
         .consortium-features {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 1.5rem;
             margin-bottom: 2.5rem;
+        }
+        
+        @media (min-width: 600px) {
+            .consortium-features {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         .c-feature {
@@ -441,11 +478,13 @@
             padding: 10px;
             border-radius: 8px;
             color: var(--secondary);
+            flex-shrink: 0;
         }
 
         .c-feature h4 {
             font-size: 1.1rem;
             margin-bottom: 0.25rem;
+            font-weight: 700;
         }
 
         .c-feature p {
@@ -453,6 +492,27 @@
             color: #9ca3af;
             margin-bottom: 0;
             line-height: 1.4;
+        }
+
+        .consortium-illustration {
+            flex: 1;
+            width: 100%;
+            min-height: 350px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consortium-illustration img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
         }
 
         /* --- PROCESS --- */
@@ -507,6 +567,7 @@
         .step h3 {
             margin-bottom: 0.5rem;
             color: var(--gray-800);
+            font-weight: 700;
         }
 
         .step p {
@@ -522,10 +583,12 @@
         }
 
         .testimonial-card {
-            background-color: var(--gray-50);
+            background-color: var(--white);
             padding: 2rem;
             border-radius: var(--radius);
             position: relative;
+            border: 1px solid var(--gray-100);
+            box-shadow: var(--shadow-sm);
         }
 
         .testimonial-quote {
@@ -570,6 +633,7 @@
         .author-info h5 {
             font-weight: 700;
             color: var(--gray-800);
+            font-size: 1rem;
         }
 
         .author-info span {
@@ -588,7 +652,7 @@
             gap: 3rem;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             .contact-container {
                 grid-template-columns: 1fr 1fr;
             }
@@ -669,6 +733,7 @@
             color: var(--white);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .footer-links ul li {
@@ -693,10 +758,22 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .nav-menu { display: none; } /* Simplified for static demo */
+            .nav-menu { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 80px; 
+                left: 0; 
+                width: 100%; 
+                background: white; 
+                padding: 20px; 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1); 
+            }
+            .nav-menu.active { display: flex; }
             .mobile-menu-btn { display: block; }
-            .consortium-features { grid-template-columns: 1fr; }
             .hero-buttons { flex-direction: column; }
+            .section-title { font-size: 2rem; }
+            .btn { width: 100%; }
         }
     </style>
 <script type="importmap">
@@ -722,13 +799,14 @@
                 Kafir
             </a>
             <nav>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="navMenu">
                     <li><a href="#sobre" class="nav-link">Sobre</a></li>
                     <li><a href="#produtos" class="nav-link">Seguros</a></li>
                     <li><a href="#consorcios" class="nav-link" style="color: var(--primary); font-weight: 700;">Consórcios</a></li>
-                    <li><a href="#contato" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Solicitar Cotação</a></li>
+                    <li><a href="#processo" class="nav-link">Como Funciona</a></li>
+                    <li><a href="#contato" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem; margin-top: 10px; md:margin-top: 0;">Solicitar Cotação</a></li>
                 </ul>
-                <button class="mobile-menu-btn" onclick="document.querySelector('.nav-menu').style.display = document.querySelector('.nav-menu').style.display === 'flex' ? 'none' : 'flex'; document.querySelector('.nav-menu').style.flexDirection = 'column'; document.querySelector('.nav-menu').style.position = 'absolute'; document.querySelector('.nav-menu').style.top = '80px'; document.querySelector('.nav-menu').style.left = '0'; document.querySelector('.nav-menu').style.width = '100%'; document.querySelector('.nav-menu').style.background = 'white'; document.querySelector('.nav-menu').style.padding = '20px'; document.querySelector('.nav-menu').style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';">
+                <button class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menu">
                     <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
             </nav>
@@ -745,16 +823,16 @@
                 <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
                 Fundada em 2010
             </div>
-            <h1>Consultoria de seguros sob medida para você e sua empresa</h1>
-            <p>Nossa equipe especializada pesquisa as melhores seguradoras do mercado para garantir proteção, rapidez e transparência. Simule seu consórcio ou contrate seu seguro com a Kafir.</p>
+            <h1>Proteja o que é mais importante.<br>Consultoria em seguros sob medida.</h1>
+            <p>Nossa equipe especializada pesquisa as melhores seguradoras para você e sua empresa, com rapidez, transparência e atendimento humanizado.</p>
             
             <div class="hero-buttons">
                 <!-- CTA pointing to Consortiums section as requested -->
                 <a href="#consorcios" class="btn btn-primary">
-                    Simular Consórcio
+                    Solicitar cotação agora
                 </a>
                 <a href="#produtos" class="btn btn-outline">
-                    Ver Seguros
+                    Ver Soluções
                 </a>
             </div>
         </div>
@@ -774,14 +852,14 @@
                         <svg class="icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
                     </div>
                     <h3>Atendimento Humano</h3>
-                    <p>Fale com pessoas reais. Nossa equipe de consultores está pronta para ouvir e resolver suas demandas.</p>
+                    <p>Fale com pessoas reais. Nossa equipe de consultores está pronta para ouvir e resolver suas demandas com agilidade.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                     </div>
                     <h3>Rapidez na Cotação</h3>
-                    <p>Processos ágeis para entregar os valores das melhores seguradoras sem burocracia.</p>
+                    <p>Processos otimizados para entregar os valores das melhores seguradoras sem burocracia desnecessária.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -807,21 +885,25 @@
                 <div class="product-group-title">Para Você e Sua Família</div>
                 <div class="products-grid">
                     <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg></div>
                         <h4>Seguro Auto</h4>
                         <p>Proteção completa contra roubo, colisão e assistência 24h para seu veículo.</p>
                         <a href="#contato" class="link-more">Saiba mais &rarr;</a>
                     </div>
                     <div class="product-card">
+                         <div class="product-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
                         <h4>Plano de Saúde</h4>
                         <p>Acesso às melhores redes hospitalares para cuidar do bem-estar da sua família.</p>
                         <a href="#contato" class="link-more">Saiba mais &rarr;</a>
                     </div>
                     <div class="product-card">
+                         <div class="product-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
                         <h4>Seguro Residencial</h4>
                         <p>Segurança para seu lar com coberturas para incêndio, roubo e danos elétricos.</p>
                         <a href="#contato" class="link-more">Saiba mais &rarr;</a>
                     </div>
                     <div class="product-card">
+                         <div class="product-icon"><svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
                         <h4>Seguro de Vida</h4>
                         <p>Garanta a estabilidade financeira de quem você ama em qualquer imprevisto.</p>
                         <a href="#contato" class="link-more">Saiba mais &rarr;</a>
@@ -834,21 +916,25 @@
                 <div class="product-group-title">Para Sua Empresa</div>
                 <div class="products-grid">
                     <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
                         <h4>Empresarial Multirrisco</h4>
                         <p>Proteção patrimonial completa contra incêndios, danos e responsabilidade civil.</p>
                         <a href="#contato" class="link-more">Saiba mais &rarr;</a>
                     </div>
                     <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
                         <h4>Saúde Empresarial</h4>
                         <p>Planos corporativos para reter talentos e cuidar da sua equipe.</p>
                         <a href="#contato" class="link-more">Saiba mais &rarr;</a>
                     </div>
                     <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
                         <h4>Frota de Veículos</h4>
                         <p>Gestão unificada de seguros para os veículos da sua empresa com custo otimizado.</p>
                         <a href="#contato" class="link-more">Saiba mais &rarr;</a>
                     </div>
                     <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="m9 15 2 2 4-4"></path></svg></div>
                         <h4>Seguro Garantia</h4>
                         <p>Alternativa eficiente à fiança bancária para contratos e licitações.</p>
                         <a href="#contato" class="link-more">Saiba mais &rarr;</a>
@@ -911,9 +997,9 @@
                     Solicitar Simulação de Consórcio
                 </a>
             </div>
-            <!-- Illustration Placeholder -->
-            <div style="flex:1; width:100%; min-height:300px; background-color:rgba(255,255,255,0.05); border-radius:24px; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(255,255,255,0.1);">
-                 <svg style="width:100px; height:100px; opacity:0.3; color:white;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            
+            <div class="consortium-illustration">
+                 <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Consórcio Kafir" loading="lazy">
             </div>
         </div>
     </section>
@@ -958,7 +1044,7 @@
                     <div class="testimonial-quote">“</div>
                     <p class="testimonial-text">A Kafir me ajudou a escolher o melhor plano de saúde para minha empresa. O atendimento foi impecável do início ao fim.</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar"><img src="https://ui-avatars.com/api/?name=Carlos+S&background=059669&color=fff" alt="Carlos"></div>
+                        <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
                         <div class="author-info">
                             <h5>Carlos Silva</h5>
                             <span>Empresário</span>
@@ -969,10 +1055,21 @@
                     <div class="testimonial-quote">“</div>
                     <p class="testimonial-text">Fiz meu consórcio imobiliário com eles e fui contemplada em 4 meses. A assessoria na hora do lance fez toda a diferença.</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar"><img src="https://ui-avatars.com/api/?name=Mariana+R&background=059669&color=fff" alt="Mariana"></div>
+                         <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
                         <div class="author-info">
                             <h5>Mariana Rocha</h5>
                             <span>Advogada</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">Precisei acionar o seguro do meu carro e o suporte da Kafir foi impecável. Resolveram tudo muito rápido.</p>
+                    <div class="testimonial-author">
+                         <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                        <div class="author-info">
+                            <h5>Roberto Almeida</h5>
+                            <span>Engenheiro</span>
                         </div>
                     </div>
                 </div>
