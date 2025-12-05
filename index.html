@@ -1,33 +1,1096 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Seguro para empresas e indivíduos. Consultoria especializada desde 2010. Solicite sua cotação na Kafir Corretora." />
-    <title>Kafir Corretora de Seguros – Consultoria e Seguros sob medida</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kafir Corretora de Seguros - Consultoria personalizada para empresas e pessoas físicas. Consórcios e Seguros sob medida desde 2010.">
+    <title>Kafir Corretora de Seguros | Consultoria e Consórcios</title>
     <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        scroll-behavior: smooth;
-      }
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --primary: #059669; /* Emerald 600 */
+            --primary-hover: #047857; /* Emerald 700 */
+            --secondary: #10b981; /* Emerald 500 */
+            --dark: #064e3b; /* Emerald 900 */
+            --light: #ecfdf5; /* Emerald 50 */
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --text-main: #111827;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 6px rgba(5, 150, 105, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(5, 150, 105, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--gray-200);
+            color: var(--gray-600);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .text-primary { color: var(--primary); }
+        .font-bold { font-weight: 700; }
+
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* --- ICONS --- */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-100);
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            background-color: var(--primary);
+            color: white;
+            padding: 6px;
+            border-radius: 8px;
+            display: flex;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-800);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, var(--light) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .blob-1 { top: -100px; right: -100px; }
+        .blob-2 { bottom: -100px; left: -100px; }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* --- BENEFITS --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--light);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-800);
+        }
+
+        .benefit-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* --- PRODUCTS --- */
+        .products-section {
+            background-color: var(--gray-50);
+        }
+
+        .product-group {
+            margin-bottom: 3rem;
+        }
+
+        .product-group-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .product-group-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid transparent;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .product-card h4 {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card p {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .link-more {
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* --- CONSORTIUMS (Featured) --- */
+        .consortium-section {
+            background: linear-gradient(to bottom right, var(--dark), #0f172a);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consortium-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .consortium-container {
+            display: flex;
+            flex-direction: column;
+            lg:flex-direction: row;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .consortium-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .consortium-content p {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .consortium-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .c-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .c-icon-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            color: var(--secondary);
+        }
+
+        .c-feature h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .c-feature p {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
+        /* --- PROCESS --- */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: var(--gray-200);
+            z-index: 0;
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .process-steps::before { display: block; }
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step h3 {
+            margin-bottom: 0.5rem;
+            color: var(--gray-800);
+        }
+
+        .step p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--gray-50);
+            padding: 2rem;
+            border-radius: var(--radius);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            color: var(--primary);
+            font-size: 3rem;
+            line-height: 1;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            color: var(--gray-600);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: var(--gray-200);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h5 {
+            font-weight: 700;
+            color: var(--gray-800);
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-section {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-box {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .form-checkbox input {
+            margin-top: 4px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 4rem 0 2rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-menu { display: none; } /* Simplified for static demo */
+            .mobile-menu-btn { display: block; }
+            .consortium-features { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; }
+        }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
     "react": "https://aistudiocdn.com/react@^19.2.1",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
   }
 }
 </script>
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                Kafir
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#produtos" class="nav-link">Seguros</a></li>
+                    <li><a href="#consorcios" class="nav-link" style="color: var(--primary); font-weight: 700;">Consórcios</a></li>
+                    <li><a href="#contato" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Solicitar Cotação</a></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="document.querySelector('.nav-menu').style.display = document.querySelector('.nav-menu').style.display === 'flex' ? 'none' : 'flex'; document.querySelector('.nav-menu').style.flexDirection = 'column'; document.querySelector('.nav-menu').style.position = 'absolute'; document.querySelector('.nav-menu').style.top = '80px'; document.querySelector('.nav-menu').style.left = '0'; document.querySelector('.nav-menu').style.width = '100%'; document.querySelector('.nav-menu').style.background = 'white'; document.querySelector('.nav-menu').style.padding = '20px'; document.querySelector('.nav-menu').style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';">
+                    <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        
+        <div class="container hero-content text-center">
+            <div class="hero-badge">
+                <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                Fundada em 2010
+            </div>
+            <h1>Consultoria de seguros sob medida para você e sua empresa</h1>
+            <p>Nossa equipe especializada pesquisa as melhores seguradoras do mercado para garantir proteção, rapidez e transparência. Simule seu consórcio ou contrate seu seguro com a Kafir.</p>
+            
+            <div class="hero-buttons">
+                <!-- CTA pointing to Consortiums section as requested -->
+                <a href="#consorcios" class="btn btn-primary">
+                    Simular Consórcio
+                </a>
+                <a href="#produtos" class="btn btn-outline">
+                    Ver Seguros
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits / About -->
+    <section id="sobre" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2 class="section-title">Por que escolher a Kafir?</h2>
+                <p class="section-subtitle">Mais do que vender apólices, construímos parcerias de longo prazo baseadas em confiança.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    </div>
+                    <h3>Atendimento Humano</h3>
+                    <p>Fale com pessoas reais. Nossa equipe de consultores está pronta para ouvir e resolver suas demandas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    </div>
+                    <h3>Rapidez na Cotação</h3>
+                    <p>Processos ágeis para entregar os valores das melhores seguradoras sem burocracia.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3>Parcerias Premium</h3>
+                    <p>Trabalhamos apenas com as seguradoras mais sólidas e renomadas do mercado nacional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produtos" class="section-padding products-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Soluções Completas</h2>
+                <p class="section-subtitle">Proteção para cada etapa da sua vida e para o crescimento do seu negócio.</p>
+            </div>
+
+            <!-- Personal -->
+            <div class="product-group">
+                <div class="product-group-title">Para Você e Sua Família</div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <h4>Seguro Auto</h4>
+                        <p>Proteção completa contra roubo, colisão e assistência 24h para seu veículo.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <h4>Plano de Saúde</h4>
+                        <p>Acesso às melhores redes hospitalares para cuidar do bem-estar da sua família.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <h4>Seguro Residencial</h4>
+                        <p>Segurança para seu lar com coberturas para incêndio, roubo e danos elétricos.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <h4>Seguro de Vida</h4>
+                        <p>Garanta a estabilidade financeira de quem você ama em qualquer imprevisto.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business -->
+            <div class="product-group">
+                <div class="product-group-title">Para Sua Empresa</div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <h4>Empresarial Multirrisco</h4>
+                        <p>Proteção patrimonial completa contra incêndios, danos e responsabilidade civil.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <h4>Saúde Empresarial</h4>
+                        <p>Planos corporativos para reter talentos e cuidar da sua equipe.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <h4>Frota de Veículos</h4>
+                        <p>Gestão unificada de seguros para os veículos da sua empresa com custo otimizado.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <h4>Seguro Garantia</h4>
+                        <p>Alternativa eficiente à fiança bancária para contratos e licitações.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consorcios Section (Anchor Destination) -->
+    <section id="consorcios" class="section-padding consortium-section">
+        <div class="container consortium-container">
+            <div class="consortium-content">
+                <div style="display:inline-block; background:rgba(255,255,255,0.1); color: #6ee7b7; font-weight:700; font-size:0.8rem; padding: 4px 12px; border-radius:20px; text-transform:uppercase; margin-bottom:1rem;">
+                    Estratégia Financeira
+                </div>
+                <h2>Consórcios Kafir:<br>Planeje sua conquista</h2>
+                <p>O consórcio é a ferramenta ideal para quem deseja adquirir imóveis ou veículos sem pagar juros bancários. Com a Kafir, você encontra o grupo perfeito para o seu perfil e objetivo.</p>
+                
+                <div class="consortium-features">
+                    <div class="c-feature">
+                        <div class="c-icon-box">
+                            <svg class="icon" viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                        </div>
+                        <div>
+                            <h4>Zero Juros</h4>
+                            <p>Fuja das taxas abusivas. Pague apenas a taxa administrativa.</p>
+                        </div>
+                    </div>
+                    <div class="c-feature">
+                        <div class="c-icon-box">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div>
+                            <h4>Parcelas Acessíveis</h4>
+                            <p>Planos flexíveis que cabem no seu orçamento mensal.</p>
+                        </div>
+                    </div>
+                    <div class="c-feature">
+                        <div class="c-icon-box">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path></svg>
+                        </div>
+                        <div>
+                            <h4>Investimento</h4>
+                            <p>Aumente seu patrimônio de forma disciplinada e segura.</p>
+                        </div>
+                    </div>
+                    <div class="c-feature">
+                        <div class="c-icon-box">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        </div>
+                        <div>
+                            <h4>Poder à Vista</h4>
+                            <p>Com a carta contemplada, você negocia a compra pelo valor à vista.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#contato" class="btn btn-primary" style="background-color: #34d399; color: #064e3b; border:none;">
+                    Solicitar Simulação de Consórcio
+                </a>
+            </div>
+            <!-- Illustration Placeholder -->
+            <div style="flex:1; width:100%; min-height:300px; background-color:rgba(255,255,255,0.05); border-radius:24px; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(255,255,255,0.1);">
+                 <svg style="width:100px; height:100px; opacity:0.3; color:white;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="processo" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="section-title">Como Funciona</h2>
+                <p class="section-subtitle">Simplificamos a contratação do seu seguro em 3 passos rápidos.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Diagnóstico</h3>
+                    <p>Entendemos suas necessidades e seu perfil em uma conversa rápida.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Cotação</h3>
+                    <p>Pesquisamos nas melhores seguradoras para encontrar o melhor preço.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Contratação</h3>
+                    <p>Apresentamos a melhor opção e cuidamos de toda a burocracia para você.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="depoimentos" class="section-padding" style="background-color: var(--gray-50);">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="section-title">O que dizem nossos clientes</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">A Kafir me ajudou a escolher o melhor plano de saúde para minha empresa. O atendimento foi impecável do início ao fim.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><img src="https://ui-avatars.com/api/?name=Carlos+S&background=059669&color=fff" alt="Carlos"></div>
+                        <div class="author-info">
+                            <h5>Carlos Silva</h5>
+                            <span>Empresário</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">Fiz meu consórcio imobiliário com eles e fui contemplada em 4 meses. A assessoria na hora do lance fez toda a diferença.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><img src="https://ui-avatars.com/api/?name=Mariana+R&background=059669&color=fff" alt="Mariana"></div>
+                        <div class="author-info">
+                            <h5>Mariana Rocha</h5>
+                            <span>Advogada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contato" class="section-padding contact-section">
+        <div class="container contact-container">
+            <div>
+                <h2 class="section-title">Vamos conversar?</h2>
+                <p style="color:var(--gray-600); margin-bottom: 2rem;">Preencha o formulário para solicitar sua cotação ou tirar dúvidas. Nossa equipe entrará em contato rapidamente.</p>
+                
+                <div style="margin-bottom: 2rem;">
+                    <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:center;">
+                        <div style="background:var(--light); padding:10px; border-radius:8px; color:var(--primary);">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div>
+                            <strong style="display:block; color:var(--dark);">Telefone</strong>
+                            <span style="color:var(--gray-600);">(11) 99999-9999</span>
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:1rem; align-items:center;">
+                        <div style="background:var(--light); padding:10px; border-radius:8px; color:var(--primary);">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div>
+                            <strong style="display:block; color:var(--dark);">E-mail</strong>
+                            <span style="color:var(--gray-600);">contato@kafirseguros.com.br</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-box">
+                <!-- Simple Form Structure -->
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Obrigado! Sua mensagem foi enviada (simulação).');">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nome Completo</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Telefone / WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(11) 99999-9999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Mensagem ou Tipo de Seguro</label>
+                        <textarea id="message" name="message" rows="4" class="form-textarea" placeholder="Gostaria de uma cotação para..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-checkbox">
+                            <input type="checkbox" required checked>
+                            <span>Concordo em receber comunicações da Kafir Corretora.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitação</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>
+                        <div style="background:var(--primary); padding:4px; border-radius:4px; display:flex;">
+                            <svg class="icon" style="color:white; width:20px; height:20px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        Kafir
+                    </h3>
+                    <p style="color:#9ca3af; font-size:0.9rem;">
+                        Consultoria de seguros especializada desde 2010. Sua segurança é o nosso compromisso.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#consorcios">Consórcios</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Seguros</h4>
+                    <ul>
+                        <li><a href="#produtos">Automóvel</a></li>
+                        <li><a href="#produtos">Vida</a></li>
+                        <li><a href="#produtos">Empresarial</a></li>
+                        <li><a href="#produtos">Residencial</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Endereço</h4>
+                    <p style="color:#9ca3af; font-size:0.9rem;">
+                        Av. Paulista, 1000 - Conj 10<br>
+                        Bela Vista, São Paulo - SP<br>
+                        CEP: 01310-100
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kafir Corretora de Seguros. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>
