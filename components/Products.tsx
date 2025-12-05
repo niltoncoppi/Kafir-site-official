@@ -4,16 +4,19 @@ import { Category, InsuranceProduct } from '../types';
 import { Icon } from './Icon';
 
 const ProductCard: React.FC<{ product: InsuranceProduct }> = ({ product }) => (
-  <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300 group flex flex-col h-full">
+  <a 
+    href={product.href}
+    className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300 group flex flex-col h-full block"
+  >
     <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
       <Icon name={product.iconName} size={24} />
     </div>
     <h3 className="text-lg font-bold text-gray-900 mb-2">{product.title}</h3>
     <p className="text-gray-500 text-sm mb-6 flex-grow">{product.description}</p>
-    <a href="#contato" className="inline-flex items-center text-sm font-semibold text-emerald-600 hover:text-emerald-700 mt-auto">
+    <div className="inline-flex items-center text-sm font-semibold text-emerald-600 group-hover:text-emerald-700 mt-auto">
       Saiba mais <Icon name="ExternalLink" size={14} className="ml-1" />
-    </a>
-  </div>
+    </div>
+  </a>
 );
 
 const Products: React.FC = () => {

@@ -45,7 +45,7 @@ const Consortiums: React.FC = () => {
             </div>
 
             <a 
-              href="#contato" 
+              href="/consorcios" 
               className="inline-flex items-center justify-center px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full sm:w-auto group"
             >
               Quero alavancar meu patrimônio

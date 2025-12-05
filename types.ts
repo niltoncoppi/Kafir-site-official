@@ -9,7 +9,8 @@ export interface InsuranceProduct {
   id: string;
   title: string;
   description: string;
-  iconName: string; // We will map this to actual icons in the component
+  iconName: string;
+  href: string;
 }
 
 export interface FaqItem {
@@ -44,12 +45,29 @@ export interface ConsortiumFeature {
   iconName: string;
 }
 
+export interface ConsortiumBenefit {
+  title: string;
+  description: string;
+  iconName: string;
+}
+
 export interface BlogPost {
   id: string;
   title: string;
   excerpt: string;
   date: string;
   imageUrl: string;
+}
+
+export interface ProductPageData {
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  iconName: string;
+  benefits: FeatureItem[];
+  ctaTitle: string;
+  ctaText: string;
 }
 
 export type Category = 'personal' | 'business';
