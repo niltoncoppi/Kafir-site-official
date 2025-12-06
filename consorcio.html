@@ -1,9 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simule consórcios para imóveis, veículos e mais. Parcelas acessíveis, sem juros e com suporte especializado Kafir.">
+    <title>Consórcios Kafir – Planeje e conquiste sem juros</title>
+    <style>
+        /* --- RESET & VARIABLES (Same as Index) --- */
+        :root {
+            --primary: #059669; --primary-hover: #047857; --secondary: #10b981; --dark: #064e3b; --light: #ecfdf5;
+            --white: #ffffff; --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-300: #d1d5db;
+            --gray-600: #4b5563; --gray-700: #374151; --gray-800: #1f2937; --text-main: #111827;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05); --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1); --radius: 12px;
+            --font-family: system-ui, -apple-system, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-family); color: var(--text-main); background-color: var(--white); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- UTILITIES --- */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; cursor: pointer; border: none; font-size: 1rem; }
+        .btn-primary { background-color: var(--primary); color: var(--white); box-shadow: 0 4px 6px rgba(5,150,105,0.2); }
+        .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
+        .section-padding { padding: 80px 0; }
+        .text-center { text-align: center; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .section-title { font-size: 2.25rem; color: var(--gray-800); margin-bottom: 1rem; line-height: 1.2; }
+        .section-subtitle { font-size: 1.125rem; color: var(--gray-600); max-width: 700px; margin: 0 auto 3rem auto; }
+        .icon { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+
+        /* --- HEADER --- */
+        header { position: fixed; top: 0; width: 100%; background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-100); z-index: 1000; height: 80px; display: flex; align-items: center; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Updated Logo Styles */
+        .logo { display: flex; align-items: center; gap: 0.75rem; }
+        .logo-icon { background-color: var(--primary); color: white; padding: 6px; border-radius: 8px; display: flex; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-main { font-size: 1.5rem; font-weight: 800; color: var(--dark); }
+        .logo-sub { font-size: 0.75rem; font-weight: 400; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .nav-menu { display: flex; gap: 2rem; align-items: center; }
+        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--gray-600); transition: color 0.2s; }
+        .nav-link:hover { color: var(--primary); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; }
+
+        /* --- HERO CONSORTIUM --- */
+        .hero { padding-top: 160px; padding-bottom: 100px; background-color: var(--dark); color: white; position: relative; overflow: hidden; }
+        .hero-blob { position: absolute; width: 500px; height: 500px; background-color: rgba(255,255,255,0.05); border-radius: 50%; filter: blur(80px); z-index: 0; }
+        .blob-1 { top: -100px; right: -100px; }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--white); }
+        .hero p { font-size: 1.25rem; color: var(--light); margin-bottom: 2.5rem; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background-color: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 50px; font-size: 0.875rem; font-weight: 600; color: var(--light); margin-bottom: 1.5rem; }
+
+        /* --- CARDS --- */
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .benefit-card { background: var(--white); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--gray-100); box-shadow: var(--shadow-sm); }
+        .benefit-icon { width: 50px; height: 50px; background-color: var(--light); color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        .benefit-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--gray-800); }
+        .benefit-card p { color: var(--gray-600); }
+
+        /* --- CTA BOX --- */
+        .contact-cta-box { background-color: var(--white); padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--gray-100); text-align: center; max-width: 800px; margin: 0 auto; }
+        .contact-cta-box h3 { font-size: 1.75rem; color: var(--dark); margin-bottom: 1rem; font-weight: 700; }
+        .contact-cta-box p { color: var(--gray-600); margin-bottom: 2rem; font-size: 1.1rem; }
+
+        /* --- FOOTER --- */
+        footer { background-color: #1f2937; color: #d1d5db; padding: 4rem 0 2rem 0; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+        .footer-brand .logo-main { color: var(--white); font-size: 1.25rem; }
+        .footer-brand .logo-sub { color: var(--gray-300); font-size: 0.7rem; }
+        .footer-links h4 { color: var(--white); margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 700; }
+        .footer-links ul li { margin-bottom: 0.75rem; }
+        .footer-links a:hover { color: var(--secondary); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #374151; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-menu { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+            .nav-menu.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Kafir</span>
+                    <span class="logo-sub">Corretora de Seguros</span>
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="index.html#produtos" class="nav-link">Seguros</a></li>
+                    <li><a href="#" class="nav-link" style="color: var(--primary); font-weight: 700;">Consórcios</a></li>
+                    <li><a href="#contato" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Simular Agora</a></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menu">
+                    <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24"><path d="M2 12h20M2 12l5-5m-5 5l5 5"/></svg>
+                Estratégia Financeira
+            </div>
+            <h1>Consórcios Kafir:<br>Planeje sua conquista sem juros</h1>
+            <p>Amplie seu patrimônio de forma inteligente. A estratégia ideal para adquirir imóveis, veículos e serviços com parcelas que cabem no bolso.</p>
+            <div class="hero-buttons">
+                <a href="#contato" class="btn btn-primary" style="background-color: var(--secondary); color: var(--dark);">
+                    Quero minha simulação
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section-padding" style="background-color: var(--white);">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="section-title">Por que fazer um Consórcio?</h2>
+                <p class="section-subtitle">Economia, flexibilidade e segurança para o seu futuro.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+                    </div>
+                    <h3>Zero Juros</h3>
+                    <p>Fuja das altas taxas de financiamento. No consórcio você paga apenas uma taxa administrativa reduzida.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="12" y1="15" x2="12" y2="15"/></svg>
+                    </div>
+                    <h3>Poder à Vista</h3>
+                    <p>Com a carta de crédito contemplada, você tem o poder de compra à vista para negociar melhores descontos.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M12 2l5 5m-5-5l-5 5"/></svg>
+                    </div>
+                    <h3>Flexibilidade</h3>
+                    <p>Use para imóveis, veículos leves ou pesados, e até mesmo para serviços como reformas e viagens.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Patrimônio Seguro</h3>
+                    <p>Uma forma disciplinada de poupar e investir no aumento do seu patrimônio familiar ou empresarial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp CTA (Replaces Form) -->
+    <section id="contato" class="section-padding" style="background-color: var(--light);">
+        <div class="container">
+            <div class="contact-cta-box">
+                <div style="width: 4rem; height: 4rem; background: var(--light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; border: 1px solid var(--primary);">
+                    <svg class="icon" style="width: 32px; height: 32px;" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <h3>Comece a construir seu patrimônio</h3>
+                <p>Envie uma mensagem no WhatsApp para simular seu consórcio com um especialista Kafir.</p>
+                <a href="https://wa.me/5547999675326" target="_blank" rel="noopener" class="btn btn-primary">
+                    Chamar no WhatsApp
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);">
+                    <strong>WhatsApp:</strong> (47) 9 9967-5326
+                </p>
+                <div style="margin-top: 2rem; font-size: 0.9rem; color: var(--gray-600); max-width: 600px;">
+                    <p><strong>Matriz:</strong> R. 280, 101 - Térreo - Sala 05 - Meia Praia, Itapema - SC, 88220-000</p>
+                    <p style="margin-top: 0.5rem;"><strong>Filial 01:</strong> Rua Domingos Nunes dos Santos, Nº 975 - Espinheiros, Itajaí - SC - CEP 88317-505</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>
+                        <div style="background:var(--primary); padding:4px; border-radius:4px; display:flex;">
+                            <svg class="icon" style="color:white; width:20px; height:20px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main" style="color:white; font-size: 1.25rem;">Kafir</span>
+                            <span class="logo-sub" style="color:var(--gray-300); font-size: 0.7rem;">Corretora de Seguros</span>
+                        </div>
+                    </h3>
+                    <p style="color:#9ca3af; font-size:0.9rem;">
+                        Consultoria de seguros especializada e humanizada. Sua segurança é o nosso compromisso.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#produtos">Seguros</a></li>
+                        <li><a href="#">Consórcios</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5547999675326" target="_blank">WhatsApp</a></li>
+                        <li><a href="index.html#contato">Endereços</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Kafir Corretora de Seguros. Todos os direitos reservados.<br>CNPJ: 31.825.159/0001-79</p>
+                <p class="footer-info">&copy; 2024 Kafir Corretora de Seguros. Todos os direitos reservados. CNPJ: 31.825.159/0001-79</p>
             </div>
         </div>
     </footer>
 
 </body>
-
 </html>
