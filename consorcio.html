@@ -1,103 +1,750 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simule consórcios para imóveis, veículos e mais. Parcelas acessíveis, sem juros e com suporte especializado Kafir.">
-    <title>Consórcios Kafir – Planeje e conquiste sem juros</title>
+    <meta name="description" content="Kafir Corretora de Seguros - Consultoria personalizada para empresas e pessoas físicas. Consórcios e Seguros sob medida desde 2010.">
+    <title>Kafir Corretora de Seguros | Consultoria e Consórcios</title>
     <style>
-        /* --- RESET & VARIABLES (Same as Index) --- */
+        /* --- RESET & VARIABLES --- */
         :root {
-            --primary: #059669; --primary-hover: #047857; --secondary: #10b981; --dark: #064e3b; --light: #ecfdf5;
-            --white: #ffffff; --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-300: #d1d5db;
-            --gray-600: #4b5563; --gray-700: #374151; --gray-800: #1f2937; --text-main: #111827;
-            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05); --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1); --radius: 12px;
-            --font-family: system-ui, -apple-system, sans-serif;
+            --primary: #059669;
+            /* Emerald 600 */
+            --primary-hover: #047857;
+            /* Emerald 700 */
+            --secondary: #10b981;
+            /* Emerald 500 */
+            --dark: #064e3b;
+            /* Emerald 900 */
+            --light: #ecfdf5;
+            /* Emerald 50 */
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --text-main: #111827;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-family); color: var(--text-main); background-color: var(--white); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
         /* --- UTILITIES --- */
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; cursor: pointer; border: none; font-size: 1rem; }
-        .btn-primary { background-color: var(--primary); color: var(--white); box-shadow: 0 4px 6px rgba(5,150,105,0.2); }
-        .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
-        .section-padding { padding: 80px 0; }
-        .text-center { text-align: center; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .section-title { font-size: 2.25rem; color: var(--gray-800); margin-bottom: 1rem; line-height: 1.2; }
-        .section-subtitle { font-size: 1.125rem; color: var(--gray-600); max-width: 700px; margin: 0 auto 3rem auto; }
-        .icon { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 6px rgba(5, 150, 105, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(5, 150, 105, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--gray-200);
+            color: var(--gray-600);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* --- ICONS --- */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
 
         /* --- HEADER --- */
-        header { position: fixed; top: 0; width: 100%; background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gray-100); z-index: 1000; height: 80px; display: flex; align-items: center; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        
-        /* Updated Logo Styles */
-        .logo { display: flex; align-items: center; gap: 0.75rem; }
-        .logo-icon { background-color: var(--primary); color: white; padding: 6px; border-radius: 8px; display: flex; }
-        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-        .logo-main { font-size: 1.5rem; font-weight: 800; color: var(--dark); }
-        .logo-sub { font-size: 0.75rem; font-weight: 400; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.5px; }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-100);
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
 
-        .nav-menu { display: flex; gap: 2rem; align-items: center; }
-        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--gray-600); transition: color 0.2s; }
-        .nav-link:hover { color: var(--primary); }
-        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        /* --- HERO CONSORTIUM --- */
-        .hero { padding-top: 160px; padding-bottom: 100px; background-color: var(--dark); color: white; position: relative; overflow: hidden; }
-        .hero-blob { position: absolute; width: 500px; height: 500px; background-color: rgba(255,255,255,0.05); border-radius: 50%; filter: blur(80px); z-index: 0; }
-        .blob-1 { top: -100px; right: -100px; }
-        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; text-align: center; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--white); }
-        .hero p { font-size: 1.25rem; color: var(--light); margin-bottom: 2.5rem; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background-color: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 50px; font-size: 0.875rem; font-weight: 600; color: var(--light); margin-bottom: 1.5rem; }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
 
-        /* --- CARDS --- */
-        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .benefit-card { background: var(--white); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--gray-100); box-shadow: var(--shadow-sm); }
-        .benefit-icon { width: 50px; height: 50px; background-color: var(--light); color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-        .benefit-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--gray-800); }
-        .benefit-card p { color: var(--gray-600); }
+        .logo-icon {
+            background-color: var(--primary);
+            color: white;
+            padding: 6px;
+            border-radius: 8px;
+            display: flex;
+        }
 
-        /* --- CTA BOX --- */
-        .contact-cta-box { background-color: var(--white); padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--gray-100); text-align: center; max-width: 800px; margin: 0 auto; }
-        .contact-cta-box h3 { font-size: 1.75rem; color: var(--dark); margin-bottom: 1rem; font-weight: 700; }
-        .contact-cta-box p { color: var(--gray-600); margin-bottom: 2rem; font-size: 1.1rem; }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-800);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, var(--light) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .blob-1 {
+            top: -100px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--dark), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* --- BENEFITS --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--light);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-800);
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* --- PRODUCTS --- */
+        .products-section {
+            background-color: var(--gray-50);
+        }
+
+        .product-group {
+            margin-bottom: 3rem;
+        }
+
+        .product-group-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .product-group-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid transparent;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .product-card:hover .product-icon {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .product-card h4 {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .product-card p {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .link-more {
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* --- PROCESS --- */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: var(--gray-200);
+            z-index: 0;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .process-steps::before {
+                display: block;
+            }
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step h3 {
+            margin-bottom: 0.5rem;
+            color: var(--gray-800);
+            font-weight: 700;
+        }
+
+        .step p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            position: relative;
+            border: 1px solid var(--gray-100);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-quote {
+            color: var(--primary);
+            font-size: 3rem;
+            line-height: 1;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            color: var(--gray-600);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: var(--gray-200);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-info h5 {
+            font-weight: 700;
+            color: var(--gray-800);
+            font-size: 1rem;
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Replaces Form Box */
+        .contact-cta-box {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .contact-cta-box h3 {
+            font-size: 1.75rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .contact-cta-box p {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
 
         /* --- FOOTER --- */
-        footer { background-color: #1f2937; color: #d1d5db; padding: 4rem 0 2rem 0; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-        .footer-brand h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
-        .footer-brand .logo-main { color: var(--white); font-size: 1.25rem; }
-        .footer-brand .logo-sub { color: var(--gray-300); font-size: 0.7rem; }
-        .footer-links h4 { color: var(--white); margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 700; }
-        .footer-links ul li { margin-bottom: 0.75rem; }
-        .footer-links a:hover { color: var(--secondary); }
-        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #374151; font-size: 0.9rem; }
+        footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 4rem 0 2rem 0;
+        }
 
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-brand .logo-main {
+            color: var(--white);
+            font-size: 1.25rem;
+        }
+
+        .footer-brand .logo-sub {
+            color: var(--gray-300);
+            font-size: 0.7rem;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-menu { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-            .nav-menu.active { display: flex; }
-            .mobile-menu-btn { display: block; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
         }
     </style>
+    <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1"
+  }
+}
+</script>
 </head>
+
 <body>
 
     <!-- Header -->
     <header>
         <div class="container nav-container">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo">
                 <div class="logo-icon">
-                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
                 </div>
                 <div class="logo-text">
                     <span class="logo-main">Kafir</span>
@@ -106,14 +753,18 @@
             </a>
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
-                    <li><a href="index.html#produtos" class="nav-link">Seguros</a></li>
-                    <li><a href="#" class="nav-link" style="color: var(--primary); font-weight: 700;">Consórcios</a></li>
-                    <li><a href="#contato" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Simular Agora</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#produtos" class="nav-link">Seguros</a></li>
+                    <li><a href="https://neuroplay.site/consorcio.html" class="nav-link" style="color: var(--primary); font-weight: 700;">Consórcios</a></li>
+                    <li><a href="#processo" class="nav-link">Como Funciona</a></li>
+                    <li><a href="#contato" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem; margin-top: 10px;">Solicitar Cotação</a></li>
                 </ul>
                 <button class="mobile-menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menu">
-                    <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
                 </button>
             </nav>
         </div>
@@ -123,82 +774,361 @@
     <section class="hero">
         <div class="hero-blob blob-1"></div>
         <div class="hero-blob blob-2"></div>
-        <div class="container hero-content">
+
+        <div class="container hero-content text-center">
             <div class="hero-badge">
-                <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24"><path d="M2 12h20M2 12l5-5m-5 5l5 5"/></svg>
-                Estratégia Financeira
+                <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                Fundada em 2010
             </div>
-            <h1>Consórcios Kafir:<br>Planeje sua conquista sem juros</h1>
-            <p>Amplie seu patrimônio de forma inteligente. A estratégia ideal para adquirir imóveis, veículos e serviços com parcelas que cabem no bolso.</p>
+            <h1>Seguros sob medida com inteligência e estratégia.<br>Proteção personalizada para pessoas, empresas e patrimônios.</h1>
+            <p>Nossa consultoria analisa seu perfil, identifica riscos reais e seleciona as seguradoras ideais com base em critérios técnicos e financeiros.<br>Eficiência, transparência e atendimento que valoriza seu tempo.</p>
+
             <div class="hero-buttons">
-                <a href="#contato" class="btn btn-primary" style="background-color: var(--secondary); color: var(--dark);">
-                    Quero minha simulação
+                <!-- CTA pointing to Consortiums page as requested -->
+                <a href="https://neuroplay.site/consorcio.html" class="btn btn-primary">
+                    Solicitar cotação agora
+                </a>
+                <a href="#produtos" class="btn btn-outline">
+                    Ver Soluções
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Benefits -->
-    <section class="section-padding" style="background-color: var(--white);">
+    <!-- Benefits / About -->
+    <section id="sobre" class="section-padding">
         <div class="container">
-            <div class="text-center mb-12">
-                <h2 class="section-title">Por que fazer um Consórcio?</h2>
-                <p class="section-subtitle">Economia, flexibilidade e segurança para o seu futuro.</p>
+            <div class="text-center mb-8">
+                <h2 class="section-title">Mais que uma corretora, uma consultoria especializada em gestão de risco.</h2>
+                <p class="section-subtitle">Analisamos seu cenário com profundidade, identificamos ameaças ocultas e construímos uma estratégia de proteção sob critérios técnicos, financeiros e jurídicos.</p>
             </div>
+
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg class="icon" viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
                     </div>
-                    <h3>Zero Juros</h3>
-                    <p>Fuja das altas taxas de financiamento. No consórcio você paga apenas uma taxa administrativa reduzida.</p>
+                    <h3>Atendimento Humano</h3>
+                    <p>Fale com pessoas reais. Nossa equipe de consultores está pronta para ouvir e resolver suas demandas com agilidade.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="12" y1="15" x2="12" y2="15"/></svg>
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
                     </div>
-                    <h3>Poder à Vista</h3>
-                    <p>Com a carta de crédito contemplada, você tem o poder de compra à vista para negociar melhores descontos.</p>
+                    <h3>Rapidez na Cotação</h3>
+                    <p>Processos otimizados para entregar os valores das melhores seguradoras sem burocracia desnecessária.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M12 2l5 5m-5-5l-5 5"/></svg>
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
                     </div>
-                    <h3>Flexibilidade</h3>
-                    <p>Use para imóveis, veículos leves ou pesados, e até mesmo para serviços como reformas e viagens.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Patrimônio Seguro</h3>
-                    <p>Uma forma disciplinada de poupar e investir no aumento do seu patrimônio familiar ou empresarial.</p>
+                    <h3>Parcerias Premium</h3>
+                    <p>Trabalhamos apenas com as seguradoras mais sólidas e renomadas do mercado nacional.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WhatsApp CTA (Replaces Form) -->
-    <section id="contato" class="section-padding" style="background-color: var(--light);">
+    <!-- Products Section -->
+    <section id="produtos" class="section-padding products-section">
         <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Soluções Completas</h2>
+                <p class="section-subtitle">Proteção para cada etapa da sua vida e para o crescimento do seu negócio.</p>
+            </div>
+
+            <!-- Personal -->
+            <div class="product-group">
+                <div class="product-group-title">Para Você e Sua Família</div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
+                                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+                                <circle cx="7" cy="17" r="2"></circle>
+                                <path d="M9 17h6"></path>
+                                <circle cx="17" cy="17" r="2"></circle>
+                            </svg></div>
+                        <h4>Seguro Auto</h4>
+                        <p>Proteção completa contra roubo, colisão e assistência 24h para seu veículo.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg></div>
+                        <h4>Plano de Saúde</h4>
+                        <p>Acesso às melhores redes hospitalares para cuidar do bem-estar da sua família.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg></div>
+                        <h4>Seguro Residencial</h4>
+                        <p>Segurança para seu lar com coberturas para incêndio, roubo e danos elétricos.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg></div>
+                        <h4>Seguro de Vida</h4>
+                        <p>Garanta a estabilidade financeira de quem você ama em qualquer imprevisto.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business -->
+            <div class="product-group">
+                <div class="product-group-title">Para Sua Empresa</div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
+                                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                                <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                                <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                                <path d="M10 6h4" />
+                                <path d="M10 10h4" />
+                                <path d="M10 14h4" />
+                                <path d="M10 18h4" />
+                            </svg></div>
+                        <h4>Empresarial Multirrisco</h4>
+                        <p>Proteção patrimonial completa contra incêndios, danos e responsabilidade civil.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg></div>
+                        <h4>Saúde Empresarial</h4>
+                        <p>Planos corporativos para reter talentos e cuidar da sua equipe.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
+                                <rect x="1" y="3" width="15" height="13"></rect>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                            </svg></div>
+                        <h4>Auto Frota</h4>
+                        <p>Gestão otimizada e proteção unificada para os veículos da empresa.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon"><svg class="icon" viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg></div>
+                        <h4>Transporte de Carga</h4>
+                        <p>Segurança logística nacional e internacional para suas mercadorias.</p>
+                        <a href="#contato" class="link-more">Saiba mais &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="processo" class="section-padding" style="background-color: var(--white);">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="section-title">Como Funciona</h2>
+                <p class="section-subtitle">Simplificamos o caminho entre você e a sua proteção ideal em 4 passos simples.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Levantamento</h3>
+                    <p>Entendemos suas necessidades e perfil de risco em uma conversa rápida.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Pesquisa</h3>
+                    <p>Consultamos as melhores seguradoras do mercado para encontrar a opção ideal.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Apresentação</h3>
+                    <p>Explicamos as propostas de forma clara, destacando custos e benefícios.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Suporte</h3>
+                    <p>Acompanhamos você desde a contratação até o pós-venda e sinistros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="depoimentos" class="section-padding" style="background-color: var(--light);">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="section-title">O que dizem nossos clientes</h2>
+                <p class="section-subtitle">A satisfação de quem já conta com a proteção e a consultoria da Kafir.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">A Kafir transformou a gestão de seguros da minha empresa. A agilidade no atendimento e a clareza nas explicações foram fundamentais.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg></div>
+                        <div class="author-info">
+                            <h5>Roberto Almeida</h5>
+                            <span>Empresário</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">Excelente consultoria para meu seguro profissional e plano de saúde. Me senti segura e bem orientada em todas as etapas.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg></div>
+                        <div class="author-info">
+                            <h5>Juliana Costa</h5>
+                            <span>Médica</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">Precisei acionar o seguro do meu carro e o suporte da Kafir foi impecável. Resolveram tudo muito rápido, sem dor de cabeça.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><svg class="icon" viewBox="0 0 24 24" style="width:100%; height:100%; color:#9ca3af; background:#f3f4f6; padding:10px;">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg></div>
+                        <div class="author-info">
+                            <h5>Carlos Mendes</h5>
+                            <span>Engenheiro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-padding">
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center mb-12">
+                <h2 class="section-title">Dúvidas Frequentes</h2>
+                <p class="section-subtitle">Respostas para as perguntas mais comuns sobre nossos serviços.</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- FAQ Item 1 -->
+                <details style="background:var(--white); border:1px solid var(--gray-100); border-radius:12px; padding:1rem; cursor:pointer;">
+                    <summary style="font-weight:600; font-size:1.1rem; color:var(--gray-800); outline:none;">Como solicito uma cotação?</summary>
+                    <p style="margin-top:1rem; color:var(--gray-600);">Você pode solicitar uma cotação clicando nos botões "Solicitar Cotação Agora" espalhados pelo site, enviando uma mensagem no WhatsApp ou nos ligando diretamente.</p>
+                </details>
+                <!-- FAQ Item 2 -->
+                <details style="background:var(--white); border:1px solid var(--gray-100); border-radius:12px; padding:1rem; cursor:pointer;">
+                    <summary style="font-weight:600; font-size:1.1rem; color:var(--gray-800); outline:none;">A Kafir trabalha com quais seguradoras?</summary>
+                    <p style="margin-top:1rem; color:var(--gray-600);">Temos parcerias com as principais seguradoras do mercado nacional e internacional, como Porto Seguro, Allianz, Azul Seguros, Bradesco Seguros, entre outras.</p>
+                </details>
+                <!-- FAQ Item 3 -->
+                <details style="background:var(--white); border:1px solid var(--gray-100); border-radius:12px; padding:1rem; cursor:pointer;">
+                    <summary style="font-weight:600; font-size:1.1rem; color:var(--gray-800); outline:none;">Existe custo para a consultoria?</summary>
+                    <p style="margin-top:1rem; color:var(--gray-600);">Não. Nossa consultoria para cotação e desenho da apólice é parte do nosso serviço. Você paga apenas o valor do seguro contratado.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form (Replaced with WhatsApp CTA) -->
+    <section id="contato" class="section-padding contact-section">
+        <div class="container contact-container">
+            <div>
+                <h2 class="section-title">Comece a proteger o que mais importa</h2>
+                <p style="color:var(--gray-600); margin-bottom: 2rem;">Entre em contato conosco para uma consultoria gratuita. Nossa equipe está pronta para entender suas necessidades.</p>
+
+                <div style="margin-bottom: 2rem;">
+                    <!-- Matriz -->
+                    <div style="display:flex; gap:1rem; margin-bottom:1.5rem; align-items:flex-start;">
+                        <div style="background:var(--light); padding:10px; border-radius:8px; color:var(--primary);">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong style="display:block; color:var(--dark);">Matriz</strong>
+                            <span style="color:var(--gray-600);">R. 280, 101 - Térreo - Sala 05<br>Meia Praia, Itapema - SC, 88220-000</span>
+                        </div>
+                    </div>
+                    <!-- Filial -->
+                    <div style="display:flex; gap:1rem; margin-bottom:1.5rem; align-items:flex-start;">
+                        <div style="background:var(--light); padding:10px; border-radius:8px; color:var(--primary);">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong style="display:block; color:var(--dark);">Filial 01</strong>
+                            <span style="color:var(--gray-600);">Rua Domingos Nunes dos Santos, Nº 975<br>Espinheiros, Itajaí - SC - CEP 88317-505</span>
+                        </div>
+                    </div>
+                    <!-- Horário -->
+                    <div style="display:flex; gap:1rem; margin-bottom:1.5rem; align-items:flex-start;">
+                        <div style="background:var(--light); padding:10px; border-radius:8px; color:var(--primary);">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong style="display:block; color:var(--dark);">Horário de Atendimento</strong>
+                            <span style="color:var(--gray-600);">Atendimento comercial: segunda a sexta, das 08h30 às 18h00, com flexibilidade para atender em horários estendidos conforme a necessidade do cliente.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatsApp CTA Box -->
             <div class="contact-cta-box">
-                <div style="width: 4rem; height: 4rem; background: var(--light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; border: 1px solid var(--primary);">
+                <div style="width: 4rem; height: 4rem; background: var(--light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
                     <svg class="icon" style="width: 32px; height: 32px;" viewBox="0 0 24 24">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                 </div>
-                <h3>Comece a construir seu patrimônio</h3>
-                <p>Envie uma mensagem no WhatsApp para simular seu consórcio com um especialista Kafir.</p>
+                <h3>Fale com um especialista</h3>
+                <p>Envie uma mensagem no WhatsApp e vamos montar a melhor solução de seguros para você.</p>
                 <a href="https://wa.me/5547999675326" target="_blank" rel="noopener" class="btn btn-primary">
                     Chamar no WhatsApp
                 </a>
                 <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);">
                     <strong>WhatsApp:</strong> (47) 9 9967-5326
                 </p>
-                <div style="margin-top: 2rem; font-size: 0.9rem; color: var(--gray-600); max-width: 600px;">
-                    <p><strong>Matriz:</strong> R. 280, 101 - Térreo - Sala 05 - Meia Praia, Itapema - SC, 88220-000</p>
-                    <p style="margin-top: 0.5rem;"><strong>Filial 01:</strong> Rua Domingos Nunes dos Santos, Nº 975 - Espinheiros, Itajaí - SC - CEP 88317-505</p>
-                </div>
             </div>
         </div>
     </section>
@@ -210,7 +1140,9 @@
                 <div class="footer-brand">
                     <h3>
                         <div style="background:var(--primary); padding:4px; border-radius:4px; display:flex;">
-                            <svg class="icon" style="color:white; width:20px; height:20px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <svg class="icon" style="color:white; width:20px; height:20px;" viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
                         </div>
                         <div class="logo-text">
                             <span class="logo-main" style="color:white; font-size: 1.25rem;">Kafir</span>
@@ -221,23 +1153,37 @@
                         Consultoria de seguros especializada e humanizada. Sua segurança é o nosso compromisso.
                     </p>
                 </div>
+
                 <div class="footer-links">
                     <h4>Navegação</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#produtos">Seguros</a></li>
-                        <li><a href="#">Consórcios</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#produtos">Seguros</a></li>
+                        <li><a href="#processo">Como Funciona</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-links">
-                    <h4>Contato</h4>
+                    <h4>Soluções</h4>
                     <ul>
-                        <li><a href="https://wa.me/5547999675326" target="_blank">WhatsApp</a></li>
-                        <li><a href="index.html#contato">Endereços</a></li>
+                        <li><a href="#produtos">Automóvel</a></li>
+                        <li><a href="https://neuroplay.site/consorcio.html">Consórcios</a></li>
+                        <li><a href="#produtos">Empresarial</a></li>
+                        <li><a href="#produtos">Vida</a></li>
                     </ul>
                 </div>
+
+                <div class="footer-links">
+                    <h4>Matriz</h4>
+                    <p style="color:#9ca3af; font-size:0.9rem;">
+                        R. 280, 101 - Térreo - Sala 05<br>
+                        Meia Praia, Itapema - SC<br>
+                        CEP 88220-000
+                    </p>
+                </div>
             </div>
+
             <div class="footer-bottom">
                 <p class="footer-info">&copy; 2024 Kafir Corretora de Seguros. Todos os direitos reservados. CNPJ: 31.825.159/0001-79</p>
             </div>
@@ -245,4 +1191,5 @@
     </footer>
 
 </body>
+
 </html>
