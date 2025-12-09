@@ -458,6 +458,20 @@
             align-items: center;
             gap: 0.25rem;
         }
+        
+        /* --- SPLIT GRID (Consortium & Contact) --- */
+        .lg-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 992px) {
+            .lg-grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
         /* --- PROCESS --- */
         .process-steps {
@@ -948,8 +962,35 @@
         </div>
     </section>
 
+    <!-- New Consortium Highlight Section -->
+    <section class="section-padding" style="background-color: var(--white);">
+        <div class="container">
+            <div class="lg-grid-2">
+                <!-- Text Side -->
+                <div>
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--light); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem;">
+                         <svg class="icon" viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+                         Estratégia Financeira
+                    </div>
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Planeje grandes conquistas sem pagar juros.</h2>
+                    <p class="section-subtitle" style="margin: 0 0 2rem 0; max-width: 100%; text-align: left;">
+                        Com os consórcios da Kafir, você acessa planos inteligentes para adquirir imóveis, veículos ou serviços de forma segura, econômica e planejada. A escolha certa para quem quer realizar com estratégia.
+                    </p>
+                    <a href="https://neuroplay.site/consorcio.html" class="btn btn-primary">
+                        Quero conhecer os planos de consórcio
+                        <svg class="icon" style="margin-left: 8px; width: 20px; height: 20px;" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+                <!-- Image Side -->
+                <div>
+                     <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Investimento e Consórcio" style="border-radius: var(--radius); box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Process Section -->
-    <section id="processo" class="section-padding" style="background-color: var(--white);">
+    <section id="processo" class="section-padding" style="background-color: var(--gray-50);">
         <div class="container">
             <div class="text-center mb-12">
                 <h2 class="section-title">Como Funciona</h2>
